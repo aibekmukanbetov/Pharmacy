@@ -1,6 +1,7 @@
 package pharmacy;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -44,9 +45,7 @@ public class Pharmacy implements Method{
 
     @Override
     public List<Medicines> getAllMedicinesByPharmacyName() {
-        List<Medicines> result = new ArrayList<>();
-            result.addAll(medicines);
-        return result;
+        return medicines;
     }
     // получить все лекарства по имени аптеки
 
@@ -63,24 +62,32 @@ public class Pharmacy implements Method{
 
     @Override
    public void addMedicinesToPharmacy(Medicines medicine){
-            List<Medicines> medicines1 = new ArrayList<>();
-            medicines1.addAll(medicines);
-            medicines1.add(medicine);
-            for (Medicines med: medicines1){
+            medicines.add(medicine);
+            for (Medicines med: medicines){
                  System.out.println(med);
             }
-    }// добавить лекарства в аптеку
+    }
+/*    public void addMedicinesToPharmacy(Medicines medicine){
+        Medicines[] medicines1 = new Medicines[medicines.length+1];
+        System.arraycopy(medicines, 0, medicines1, 0, medicines.length);
+        medicines1[medicines.length] = medicine;
+        for (Medicines med: medicines1) {
+            System.out.println(Arrays.toString(new Medicines[]{med}));
+        }
+    }*/
+    // добавить лекарства в аптеку
 
 
     @Override
     public void addWorkerToPharmacy(Worker worker) {
-            List<Worker> workers1 = new ArrayList<>();
-            workers1.addAll(workers);
-            if (workers1.equals(worker.getEmail())){
-                System.out.println("Работник с таким логином уже существует");
-            } else {
-                workers1.add(worker);
-            }
+//            if (workers.contains(worker)){
+//                System.out.println("Работник с таким логином уже существует");
+//            } else {
+                workers.add(worker);
+                for (Worker work: workers) {
+                    System.out.println(work);
+                }
+//            }
     }
 
     @Override
