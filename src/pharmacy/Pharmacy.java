@@ -62,10 +62,19 @@ public class Pharmacy implements Method{
 
     @Override
    public void addMedicinesToPharmacy(Medicines medicine){
-            medicines.add(medicine);
-            for (Medicines med: medicines){
-                 System.out.println(med);
+        try {
+            if (medicine.getPrice()<200){
+                throw  new RuntimeException("Цена должен быть больше 200");
+            } else {
+                medicines.add(medicine);
+                for (Medicines med: medicines){
+                    System.out.println(med);
+                }
             }
+        } catch (RuntimeException r){
+            System.err.println(r.getMessage());
+        }
+
     }
 /*    public void addMedicinesToPharmacy(Medicines medicine){
         Medicines[] medicines1 = new Medicines[medicines.length+1];
@@ -80,23 +89,44 @@ public class Pharmacy implements Method{
 
     @Override
     public void addWorkerToPharmacy(Worker worker) {
-//            if (workers.contains(worker)){
-//                System.out.println("Работник с таким логином уже существует");
-//            } else {
+        try {
+            if (isWorkerEmailExists(worker.getEmail())) {
+                throw  new RuntimeException("Работник с таким аккаунтом уже существует");
+//                System.out.println("Работник с таким аккаунтом уже существует");
+            } else {
                 workers.add(worker);
-                for (Worker work: workers) {
+                for (Worker work : workers) {
                     System.out.println(work);
                 }
-//            }
+            }
+        } catch (RuntimeException run){
+            System.err.println(run.getMessage());
+        }
+    }
+    private boolean isWorkerEmailExists(String email) {
+        for (Worker worker : workers) {
+            if (worker.getEmail().equals(email)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override
     public void updateMedicinePrice(String medicineName, int newPrice){
         for (Medicines medicines1 : medicines) {
-        if (medicines1.getName().equals(medicineName)) {
-            medicines1.setPrice(newPrice);
-            break;
-        }
+            try {
+                if (medicines1.getPrice()==newPrice){
+                    throw new RuntimeException("Введите другую цену чем прошлый");
+                }
+        } catch (RuntimeException e){
+                System.err.println(e.getMessage());
+            }
+            if (medicines1.getName().equals(medicineName)) {
+                medicines1.setPrice(newPrice);
+                break;
+            }
+
     }
         System.out.println(medicines);
 
@@ -104,9 +134,14 @@ public class Pharmacy implements Method{
 
     @Override
    public void  deleteMedicineByName(String medicineName){
-        for (Medicines medName: medicines) {
+/*        for (Medicines medName: medicines) {
             if(medName.getName().equals(medicineName)){
                 medicines.remove(medName);
+            }
+        }*/
+        for (int i=0; i<=medicines.size(); i++) {
+            if(medicines.get(i).getName().equals(medicineName)){
+                medicines.remove(medicines.get(i));
             }
         }
         System.out.println(medicines);
@@ -114,9 +149,14 @@ public class Pharmacy implements Method{
 
     @Override
    public void deleteWorkerByName(String workerName){
-        for (Worker worker: workers) {
+  /*      for (Worker worker: workers) {
             if (worker.getName().equals(workerName)){
                 workers.remove(worker);
+            }
+        }*/
+        for (int i =0; i<=workers.size(); i++) {
+            if (workers.get(i).getName().equals(workerName)){
+                workers.remove(workers.get(i));
             }
         }
         System.out.println(workers);

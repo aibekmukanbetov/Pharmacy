@@ -15,15 +15,15 @@ public class Main {
         Medicines medicines6 = new Medicines("I", 346, 20);
         Medicines medicines7 = new Medicines("N", 1000, 10);
         List<Medicines> medicine1 = new ArrayList<>();
-                medicine1.add(medicines1);
-                medicine1.add(medicines2);
-                medicine1.add(medicines3);
+        medicine1.add(medicines1);
+        medicine1.add(medicines2);
+        medicine1.add(medicines3);
         List<Medicines> medicine2 = new ArrayList<>();
-                medicine2.add(medicines4);
-                medicine2.add(medicines5);
+        medicine2.add(medicines4);
+        medicine2.add(medicines5);
         List<Medicines> medicine3 = new ArrayList<>();
-                medicine3.add(medicines6);
-                medicine3.add(medicines7);
+        medicine3.add(medicines6);
+        medicine3.add(medicines7);
 
         Worker worker1 = new Worker("Aizada", 24, "aizada@gmail.com");
         Worker worker2 = new Worker("Aikanysh", 37, "aikanysh@gmail.com");
@@ -31,21 +31,21 @@ public class Main {
         Worker worker4 = new Worker("Aibek", 32, "aibek@gmail.com");
         Worker worker5 = new Worker("Abil", 23, "abil@gmail.com");
         List<Worker> workers1 = new ArrayList<>();
-                workers1.add(worker1);
-                workers1.add(worker2);
+        workers1.add(worker1);
+        workers1.add(worker2);
         List<Worker> workers2 = new ArrayList<>();
-                workers2.add(worker3);
-                workers2.add(worker4);
+        workers2.add(worker3);
+        workers2.add(worker4);
         List<Worker> workers3 = new ArrayList<>();
-                workers3.add(worker5);
+        workers3.add(worker5);
 
-        Pharmacy pharmacy1 = new Pharmacy("Apteka","Bishkek", medicine1, workers1);
-        Pharmacy pharmacy2 = new Pharmacy("Neman","Naryn", medicine2, workers2);
-        Pharmacy pharmacy3 = new Pharmacy("Farm","Kyrgyzstan", medicine3, workers3);
+        Pharmacy pharmacy1 = new Pharmacy("Apteka", "Bishkek", medicine1, workers1);
+        Pharmacy pharmacy2 = new Pharmacy("Neman", "Naryn", medicine2, workers2);
+        Pharmacy pharmacy3 = new Pharmacy("Farm", "Kyrgyzstan", medicine3, workers3);
         List<Pharmacy> pharmacies = new ArrayList<>();
-                pharmacies.add(pharmacy1);
-                pharmacies.add(pharmacy2);
-                pharmacies.add(pharmacy3);
+        pharmacies.add(pharmacy1);
+        pharmacies.add(pharmacy2);
+        pharmacies.add(pharmacy3);
 
         String word;
         do {
@@ -60,7 +60,7 @@ public class Main {
             System.out.println("8. Для получения аптеки по имени работника");
             System.out.println("exit для выхода");
             System.out.println("--------------------------------------");
-            Scanner scanner =new Scanner(System.in);
+            Scanner scanner = new Scanner(System.in);
             word = scanner.nextLine();
             switch (word) {
                 case "1":
@@ -73,7 +73,7 @@ public class Main {
                     } else if (namePharmacy.equals(pharmacy2.getName())) {
                         System.out.println("Все лекарства ");
                         System.out.println(pharmacy2.getAllMedicinesByPharmacyName());
-                    } else if (namePharmacy.equals(pharmacy3.getName())){
+                    } else if (namePharmacy.equals(pharmacy3.getName())) {
                         System.out.println("Все лекарства ");
                         System.out.println(pharmacy3.getAllMedicinesByPharmacyName());
                     } else {
@@ -84,7 +84,7 @@ public class Main {
                     System.out.println("Ведите адресс аптеки ");
                     Scanner scan2 = new Scanner(System.in);
                     String pharmacyAddress = scan2.nextLine();
-                    if (pharmacyAddress.equals(pharmacy1.getAddress())){
+                    if (pharmacyAddress.equals(pharmacy1.getAddress())) {
                         System.out.println(pharmacy1.getAllSortedWorkersNameByPharmacyAddress());
                     } else if (pharmacyAddress.equals(pharmacy2.getAddress())) {
                         System.out.println(pharmacy2.getAllSortedWorkersNameByPharmacyAddress());
@@ -99,28 +99,28 @@ public class Main {
                     Scanner scan3 = new Scanner(System.in);
                     String name = scan3.nextLine();
                     System.out.print("Введите цену лекарства: ");
-                    Scanner scan4 =new Scanner(System.in);
+                    Scanner scan4 = new Scanner(System.in);
                     int price = scan4.nextInt();
                     System.out.print("Введите количество лекарств: ");
                     Scanner scan5 = new Scanner(System.in);
                     int count = scan5.nextInt();
-                    Medicines medicines =new Medicines(name, price,count);
+                    Medicines medicines = new Medicines(name, price, count);
                     System.out.println("Введите название аптеки куда вы хотите добавить");
-                    Scanner scan6 =new Scanner(System.in);
+                    Scanner scan6 = new Scanner(System.in);
                     String namePharm = scan6.nextLine();
                     if (namePharm.equals(pharmacy1.getName())) {
                         System.out.println("Лекарства до добавления");
-                        pharmacy1.getAllMedicinesByPharmacyName();
+                        System.out.println(pharmacy1.getAllMedicinesByPharmacyName());
                         System.out.println("лекарства после добавления");
                         pharmacy1.addMedicinesToPharmacy(medicines);
-                    } else if (namePharm.equals(pharmacy2.getName())){
+                    } else if (namePharm.equals(pharmacy2.getName())) {
                         System.out.println("Лекарства до добавления");
-                        pharmacy2.getAllMedicinesByPharmacyName();
+                        System.out.println(pharmacy2.getAllMedicinesByPharmacyName());
                         System.out.println("лекарства после добавления");
                         pharmacy2.addMedicinesToPharmacy(medicines);
                     } else if (namePharm.equals(pharmacy3.getName())) {
                         System.out.println("Лекарства до добавления");
-                        pharmacy3.getAllMedicinesByPharmacyName();
+                        System.out.println(pharmacy3.getAllMedicinesByPharmacyName());
                         System.out.println("лекарства после добавления");
                         pharmacy3.addMedicinesToPharmacy(medicines);
                     } else {
@@ -137,11 +137,11 @@ public class Main {
                     System.out.print("Введите электронную почту работника: ");
                     Scanner scannerEmail = new Scanner(System.in);
                     String workEmail = scannerEmail.nextLine();
-                    Worker worker = new Worker(workName,workAge,workEmail);
+                    Worker worker = new Worker(workName, workAge, workEmail);
                     System.out.println("Введите название аптеки куда вы хотите добавить: ");
                     Scanner scannerPharmacyName = new Scanner(System.in);
                     String pharmacyName = scannerPharmacyName.nextLine();
-                    if (pharmacyName.equals(pharmacy1.getName())){
+                    if (pharmacyName.equals(pharmacy1.getName())) {
                         System.out.println("до добавления нового работника: ");
                         System.out.println(pharmacy1.getAllSortedWorkersNameByPharmacyAddress());
                         System.out.println("После добавления нового работника");
@@ -164,7 +164,7 @@ public class Main {
                     System.out.println("Введите название аптеки где вы хотите поменять цену лекарства: ");
                     Scanner scanner1 = new Scanner(System.in);
                     String namePhar = scanner1.nextLine();
-                    if (namePhar.equals(pharmacy1.getName())){
+                    if (namePhar.equals(pharmacy1.getName())) {
                         System.out.println("Все лекарства: ");
                         System.out.println(pharmacy1.getAllMedicinesByPharmacyName());
                         System.out.println("Введите название лекарства для указания новых цен");
@@ -194,7 +194,7 @@ public class Main {
                         Scanner scanner7 = new Scanner(System.in);
                         int newPrice = scanner7.nextInt();
                         pharmacy3.updateMedicinePrice(nameMedicine, newPrice);
-                    }else {
+                    } else {
                         System.out.println("Аптеки с таким именем нет");
                     }
                     break;
@@ -202,7 +202,7 @@ public class Main {
                     System.out.println("Введите название аптеки где вы хотите удалить лекарства: ");
                     Scanner scanner9 = new Scanner(System.in);
                     String namePh = scanner9.nextLine();
-                    if (namePh.equals(pharmacy1.getName())){
+                    if (namePh.equals(pharmacy1.getName())) {
                         System.out.println("Все лекарства: ");
                         System.out.println(pharmacy1.getAllMedicinesByPharmacyName());
                         System.out.println("Введите название лекарства которую хотите удалить: ");
@@ -231,7 +231,7 @@ public class Main {
                     System.out.println("Введите название аптеки где вы хотите удалить работника: ");
                     Scanner scanner11 = new Scanner(System.in);
                     String nameP = scanner11.nextLine();
-                    if (nameP.equals(pharmacy1.getName())){
+                    if (nameP.equals(pharmacy1.getName())) {
                         System.out.println("Все работники: ");
                         System.out.println(pharmacy1.getAllSortedWorkersNameByPharmacyAddress());
                         System.out.println("Введите имя работника которую хотите удалить: ");
@@ -258,9 +258,9 @@ public class Main {
                     break;
                 case "8":
                     System.out.println("Введите имя работника: ");
-                    Scanner scanner12 =new Scanner(System.in);
+                    Scanner scanner12 = new Scanner(System.in);
                     String nameWork = scanner12.nextLine();
-                    for (Pharmacy pharmacy: pharmacies) {
+                    for (Pharmacy pharmacy : pharmacies) {
                         System.out.println(pharmacy.getPharmacyByWorkerName(nameWork));
                     }
                     break;
@@ -271,6 +271,6 @@ public class Main {
                     System.out.println("Не правильно выбран режим");
             }
 
-        }while (!word.equals("exit"));
+        } while (!word.equals("exit"));
     }
 }
